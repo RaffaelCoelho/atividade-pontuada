@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+int main()
+{
+
+    // Exibição de variaveis
+
+    char nomedoproduto[50][200];
+    float preco[50];
+    int quantidade;
+    int codigo;
+    float total = 0;
+    int i;
+    int contador = 0;
+    // area de trabalho
+
+    for (i = 0; i < 50; i++)
+    {
+
+        printf("\nVocê deseja inserir algum produto? Digite (1) se sim, digite (2) se deseja encerrar:");
+        scanf("%d", &codigo);
+
+        if (codigo == 1)
+        {
+
+            fflush(stdin);
+
+            contador++;
+
+            printf("Digite o nome do produto:");
+            gets(nomedoproduto[i]);
+
+            fflush(stdin);
+
+            printf("Digite o preço do produto:");
+            scanf("%f", &preco[i]);
+
+            total = total + preco[i];
+        }
+
+        fflush(stdin);
+
+        if (codigo == 2)
+        {
+            fflush(stdin);
+
+            printf("\ntotal a se pagar: %2.f", total);
+
+            abort();
+        }
+    }
+
+    return 0;
+}
